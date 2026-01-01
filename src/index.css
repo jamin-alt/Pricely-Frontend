@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 220 13% 18%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 18%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 18%;
+
+    --primary: 270 91% 64%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 0 0% 96%;
+    --secondary-foreground: 220 13% 18%;
+
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+
+    --accent: 270 91% 64%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 270 91% 64%;
+
+    --radius: 0.75rem;
+
+    /* Custom Trolley colors */
+    --trolley-purple: 270 91% 64%;
+    --trolley-pink: 330 85% 60%;
+    --trolley-green: 142 76% 45%;
+    --trolley-orange: 25 95% 53%;
+    --trolley-blue: 217 91% 60%;
+    
+    /* Store colors */
+    --asda-green: 120 100% 25%;
+    --morrisons-yellow: 47 100% 50%;
+    --tesco-blue: 210 100% 35%;
+    --amazon-orange: 30 100% 50%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 220 13% 46%;
+    --sidebar-primary: 270 91% 64%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270 91% 97%;
+    --sidebar-accent-foreground: 270 91% 64%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 270 91% 64%;
+  }
+
+  .dark {
+    --background: 220 13% 10%;
+    --foreground: 0 0% 98%;
+
+    --card: 220 13% 12%;
+    --card-foreground: 0 0% 98%;
+
+    --popover: 220 13% 12%;
+    --popover-foreground: 0 0% 98%;
+
+    --primary: 270 91% 64%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 220 13% 18%;
+    --secondary-foreground: 0 0% 98%;
+
+    --muted: 220 13% 18%;
+    --muted-foreground: 220 9% 65%;
+
+    --accent: 270 91% 64%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 62% 30%;
+    --destructive-foreground: 0 0% 98%;
+
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 270 91% 64%;
+
+    --sidebar-background: 220 13% 12%;
+    --sidebar-foreground: 220 9% 65%;
+    --sidebar-primary: 270 91% 64%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 270 91% 20%;
+    --sidebar-accent-foreground: 270 91% 75%;
+    --sidebar-border: 220 13% 20%;
+    --sidebar-ring: 270 91% 64%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+@layer components {
+  .store-card {
+    @apply bg-card rounded-xl border border-border p-4 flex items-center justify-center hover:shadow-md transition-all duration-200 cursor-pointer min-w-[100px] h-[60px];
+  }
+
+  .deal-badge {
+    @apply absolute top-3 left-3 flex flex-col gap-1;
+  }
+
+  .deal-badge-number {
+    @apply w-8 h-8 rounded-full bg-primary text-primary-foreground flex items-center justify-center text-sm font-bold;
+  }
+
+  .deal-badge-save {
+    @apply px-3 py-1 rounded-full bg-[hsl(var(--trolley-green))] text-white text-xs font-semibold whitespace-nowrap;
+  }
+
+  .deal-badge-cheaper {
+    @apply px-3 py-1 rounded-full bg-[hsl(var(--trolley-orange))] text-white text-xs font-semibold whitespace-nowrap;
+  }
+
+  .price-tag {
+    @apply flex flex-col items-center justify-center px-4 py-2 rounded-lg bg-muted hover:bg-muted/80 transition-colors cursor-pointer;
+  }
+
+  .price-tag-store {
+    @apply text-xs text-muted-foreground font-medium;
+  }
+
+  .price-tag-price {
+    @apply text-sm font-bold text-foreground;
+  }
+
+  .sidebar-item {
+    @apply flex items-center gap-3 px-4 py-3 rounded-xl text-sidebar-foreground hover:bg-sidebar-accent hover:text-sidebar-accent-foreground transition-all duration-200 cursor-pointer;
+  }
+
+  .sidebar-item-active {
+    @apply bg-sidebar-accent text-sidebar-accent-foreground font-medium;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
