@@ -10,7 +10,7 @@ interface SidebarItem {
 const sidebarItems: SidebarItem[] = [
   { icon: <User className="h-5 w-5" />, label: "For You", href: "/" },
   { icon: <Compass className="h-5 w-5" />, label: "Explore", href: "/explore" },
-  { icon: <Tag className="h-5 w-5" />, label: "Deals", href: "/" },
+  { icon: <Tag className="h-5 w-5" />, label: "Deals", href: "/#deals" },
 ];
 
 const Sidebar = () => {

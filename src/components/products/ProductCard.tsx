@@ -39,7 +39,7 @@ const ProductCard = ({
   // reviewQuote,
 }: ProductCardProps) => {
   return (
-    <div className="bg-card rounded-2xl border border-border p-4 lg:p-6 animate-fade-in hover:shadow-lg transition-shadow">
+    <div className="bg-card rounded-4xl border border-border p-4 lg:p-6 animate-fade-in hover:shadow-lg transition-shadow">
       <div className="flex flex-col lg:flex-row gap-4 lg:gap-6">
         {/* Left: Image with badges */}
         <div className="relative flex-shrink-0">
@@ -48,7 +48,7 @@ const ProductCard = ({
             <div className="deal-badge-save">Save {savings} in {savingsStore}</div>
             <div className="deal-badge-cheaper">{percentCheaper}% Cheaper</div>
           </div>
-          <div className="w-full lg:w-60 h-80 rounded-xl flex items-center justify-center overflow-hidden">
+          <div className="w-full lg:w-80 h-60 lg:h-90 rounded-xl flex items-center justify-center overflow-hidden">
             <img
               src={image}
               alt={name}
@@ -65,7 +65,7 @@ const ProductCard = ({
           {/* Product Info */}
           <div className="mb-4">
             {/* <p className="text-primary font-semibold text-sm">{brand}</p> */}
-            <h3 className="text-foreground font-semibold text-base lg:text-lg leading-tight mb-1">
+            <h3 className="text-foreground font-semibold text-base lg:text-xl leading-tight mb-1">
               {name}
             </h3>
             {/* <p className="text-muted-foreground text-sm">{size}</p> */}

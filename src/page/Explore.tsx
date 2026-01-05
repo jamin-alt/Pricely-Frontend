@@ -38,8 +38,8 @@ const Explore = () => {
       <Sidebar />
 
       {/* Main Content */}
-      <main className="pt-16 pl-20 lg:pl-56">
-        <div className="p-4 lg:p-8 max-w-6xl">
+      <main className="pt-16 lg:pl-56">
+        <div className="p-4 lg:p-8 max-w-8xl">
           {/* Page Title */}
           <div className="mb-8">
             <h1 className="text-2xl lg:text-3xl font-bold text-foreground mb-2">

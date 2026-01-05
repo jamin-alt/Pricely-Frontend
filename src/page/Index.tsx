@@ -65,8 +65,8 @@ const Index = () => {
       <Header setFilters={setFilters} />
       <Sidebar />
       
-      <main className="pt-16 pl-20 lg:pl-56">
-        <div className="p-4 lg:p-8 max-w-5xl">
+      <main className="pt-16 mx-10 lg:pl-60">
+        <div className="p-4 lg:p-8 max-w-6xl">
           <HeroBanner />
           <StoreCarousel stores={availableVendors.map(vendor => ({ name: vendor }))} setFilters={setFilters} />
             {loading ? (
