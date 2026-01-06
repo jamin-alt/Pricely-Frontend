@@ -34,7 +34,7 @@ const Explore = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header setFilters={setFilters} />
+      <Header />
       <Sidebar />
 
       {/* Main Content */}

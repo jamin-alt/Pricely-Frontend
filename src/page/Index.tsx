@@ -62,7 +62,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <Header setFilters={setFilters} />
+      <Header />
       <Sidebar />
       
       <main className="pt-16 lg:pl-60">
