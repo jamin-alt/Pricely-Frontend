@@ -1,6 +1,8 @@
 import { Search, Heart, User } from "lucide-react";
 import { Input } from "@/components/ui/input";
-import { useState, useRef } from "react"; // Added useRef for debouncing
+import { useState, useRef } from "react";
+import MobileMenu from "./HamburgerMenu";
+import { Link } from "react-router-dom";
 
 interface HeaderProps {
   setFilters: React.Dispatch<
@@ -17,17 +19,20 @@ interface HeaderProps {
 
 const Header = ({ setFilters }: HeaderProps) => {
   const [search, setSearch] = useState("");
-  const debounceRef = useRef<NodeJS.Timeout | null>(null);
+  const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const handleSearchChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const value = e.target.value;
     setSearch(value);
 
-    // Debounce the filter update to avoid excessive API calls
-    if (debounceRef.current) clearTimeout(debounceRef.current);
+    // Debounce filter updates
+    if (debounceRef.current) {
+      clearTimeout(debounceRef.current);
+    }
+
     debounceRef.current = setTimeout(() => {
       setFilters((prev) => ({ ...prev, search: value }));
-    }, 300); // 300ms delay, adjustable
+    }, 300);
   };
 
   return (
@@ -36,7 +41,11 @@ const Header = ({ setFilters }: HeaderProps) => {
         {/* Logo */}
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-primary flex items-center justify-center">
-            <span className="text-primary-foreground font-bold text-xl">T</span>
+            <Link to="/">
+            <span className="text-primary-foreground font-bold text-xl">
+              T
+            </span>
+            </Link>
           </div>
           <span className="hidden md:block text-lg font-semibold text-foreground">
             trolley
@@ -59,12 +68,8 @@ const Header = ({ setFilters }: HeaderProps) => {
 
         {/* Right Actions */}
         <div className="flex items-center gap-2">
-          <button className="p-2 rounded-full hover:bg-muted transition-colors">
-            <Heart className="h-5 w-5 text-muted-foreground" />
-          </button>
-          <button className="p-2 rounded-full hover:bg-muted transition-colors">
-            <User className="h-5 w-5 text-muted-foreground" />
-          </button>
+          {/* Mobile Hamburger */}
+          <MobileMenu />
         </div>
       </div>
     </header>
